@@ -241,7 +241,7 @@ Ouvrez la classe `HelloBeautifulButton` et modifiez la méthode `start()` pour q
 * Ajouter une feuille de style CSS pour améliorer l'apparence de votre application. Pour ce faire, ajouter la ligne suivante juste après la création de l'objet `Scene` :
 
 ```java
-        scene.getStylesheets().add(getClass().getClassLoader().getResource("DarkTheme.css").toExternalForm());
+scene.getStylesheets().add(getClass().getClassLoader().getResource("DarkTheme.css").toExternalForm());
 ```
 
 * Agrandir la hauteur de la scène à 250
@@ -443,9 +443,7 @@ On utilisera aussi la propriété `Rate` pour accélérer et ralentir la balle a
 Comme expliqué dans le cours, le mécanisme des propriétés permet d'être informé d'un changement de valeur d'une variable d'instance. Ce mécanisme se base sur les écouteurs (exactement comme les boutons). Dans notre cas, nous souhaitons changer le `Rate` à chaque changement de la propriété `value` du slider. Cela pourrait se faire de la manière suivante :
 
 ```java
-slider.valueProperty().addListener(
-        (observable, oldValue, newValue) -> transition.setRate(newValue.doubleValue())
-        );
+slider.valueProperty().addListener((observable, oldValue, newValue) -> transition.setRate(newValue.doubleValue()));
 ```
 
 Dans le Paquetage `exercice13`, ouvrez la classe `BouncingBall` et implémentez-la en respectant les consignes suivantes :
