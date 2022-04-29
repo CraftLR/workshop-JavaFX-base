@@ -1,0 +1,50 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.195.0/containers/java
+{
+	"name": "Java",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {
+			"JDK_VERSION":"17.0.2.fx-zulu",
+			"INSTALL_MAVEN": "true",
+			"MAVEN_VERSION": "3.8.5",
+			"INSTALL_GRADLE": "false",
+		}
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"java.jdt.ls.java.home": "/home/gitpod/.sdkman/candidates/java/current",
+		"maven.executable.path": "/home/gitpod/.sdkman/candidates/maven/current/bin/mvn",
+		"terminal.integrated.profiles.linux": {
+			"zsh": {
+				"path": "zsh",
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "zsh"
+	},
+	
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"vscjava.vscode-java-pack",
+		"redhat.java",
+		"vscjava.vscode-maven",
+		"vscjava.vscode-java-dependency",
+		"vscjava.vscode-java-debug",
+		"vscjava.vscode-java-test",
+		"redhat.vscode-commons",
+		"redhat.vscode-xml",
+		"redhat.fabric8-analytics",
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "java -version",
+
+	"containerUser": "gitpod",
+	
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "gitpod"
+}
