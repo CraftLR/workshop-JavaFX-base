@@ -18,14 +18,13 @@ import java.util.concurrent.TimeoutException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Disabled
 @ExtendWith(ApplicationExtension.class)
 public class TestMyUndecoratedJavaFXWindow {
 
     Stage stage;
 
     @Start
-    public void start(Stage stage) throws Exception {
+    void start(Stage stage) throws Exception {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -46,7 +45,7 @@ public class TestMyUndecoratedJavaFXWindow {
     }
 
     @AfterEach
-    public void afterEachTest(FxRobot robot) throws TimeoutException {
+    void afterEachTest(FxRobot robot) throws TimeoutException {
         FxToolkit.cleanupStages();
         Platform.runLater(() -> stage.close());
         robot.release(new KeyCode[]{});
@@ -55,43 +54,43 @@ public class TestMyUndecoratedJavaFXWindow {
 
     @Disabled
     @Test
-    public void should_initialize_stage_is_not_showing() {
+    void should_initialize_stage_is_not_showing() {
         assertFalse(stage.isShowing());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_correct_title() {
+    void should_initialize_stage_with_correct_title() {
         assertEquals("Undecorated Useless JavaFX Window", stage.getTitle());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_is_always_on_top() {
+    void should_initialize_stage_is_always_on_top() {
         assertTrue(stage.alwaysOnTopProperty().get());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_is_not_resizable() {
+    void should_initialize_stage_is_not_resizable() {
         assertFalse(stage.isResizable());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_height_of_400() {
+    void should_initialize_stage_with_height_of_400() {
         assertEquals(400, stage.getHeight());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_width_of_800() {
+    void should_initialize_stage_with_width_of_800() {
         assertEquals(800, stage.getWidth());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_is_undecorated() {
+    void should_initialize_stage_is_undecorated() {
         assertEquals(StageStyle.UNDECORATED, stage.getStyle());
     }
 

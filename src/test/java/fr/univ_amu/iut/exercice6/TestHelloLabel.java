@@ -4,7 +4,6 @@ import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
-@Disabled
 @ExtendWith(ApplicationExtension.class)
 public class TestHelloLabel {
 
@@ -49,34 +47,39 @@ public class TestHelloLabel {
     }
 
     @AfterEach
-    public void afterEachTest(FxRobot robot) throws TimeoutException {
+    void afterEachTest(FxRobot robot) throws TimeoutException {
         FxToolkit.cleanupStages();
         robot.release(new KeyCode[]{});
         robot.release(new MouseButton[]{});
     }
 
+    @Disabled
     @Test
-    public void should_initialize_stage_with_correct_title() {
+    void should_initialize_stage_with_correct_title() {
         assertEquals("Hello !", stage.getTitle());
     }
 
+    @Disabled
     @Test
-    public void should_initialize_stage_is_showing() {
+    void should_initialize_stage_is_showing() {
         assertTrue(stage.isShowing());
     }
 
+    @Disabled
     @Test
-    public void should_initialize_stage_with_height_of_100() {
+    void should_initialize_stage_with_height_of_100() {
         assertEquals(100, stage.getHeight());
     }
 
+    @Disabled
     @Test
-    public void should_initialize_stage_with_width_of_250() {
+    void should_initialize_stage_with_width_of_250() {
         assertEquals(250, stage.getWidth());
     }
 
+    @Disabled
     @Test
-    public void should_initialize_label_with_text_hello() {
+    void should_initialize_label_with_text_hello() {
         verifyThat("#labelHello", hasText("Hello !"));
     }
 

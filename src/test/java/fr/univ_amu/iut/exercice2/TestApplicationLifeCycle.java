@@ -28,45 +28,45 @@ public class TestApplicationLifeCycle {
     @Mock PrintStream out;
 
     @BeforeEach
-    public void setUpClass() throws Exception {
+    void setUpClass() throws Exception {
         MockitoAnnotations.initMocks(this);
         System.setOut(out);
         ApplicationTest.launch(ApplicationLifeCycle.class);
     }
 
     @Start
-    public void start(Stage stage) throws Exception {
+    void start(Stage stage) throws Exception {
         stage.show();
     }
 
     @AfterEach
-    public void afterEachTest(FxRobot robot) throws TimeoutException {
+    void afterEachTest(FxRobot robot) throws TimeoutException {
         FxToolkit.cleanupStages();
         robot.release(new KeyCode[]{});
         robot.release(new MouseButton[]{});
     }
 
     @Test
-    public void constructor() throws Exception {
+    void constructor() throws Exception {
         verify(out).println("constructeur ApplicationLifeCycle()");
     }
 
     @Disabled
     @Test
-    public void init() {
+    void test_init() {
         verify(out).println("init()");
     }
 
     @Disabled
     @Test
-    public void test_stop() throws Exception {
+    void test_stop() throws Exception {
         FxToolkit.setupApplication(ApplicationLifeCycle.class).stop();
         verify(out).println("stop()");
     }
 
     @Disabled
     @Test
-    public void test_life_cycle_output() {
+    void test_life_cycle_output() {
         verify(out).println("constructeur ApplicationLifeCycle()");
         verify(out).println("start() : avant show stage");
         verify(out).println("start() : après show stage");

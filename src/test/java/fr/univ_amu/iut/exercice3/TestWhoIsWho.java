@@ -21,14 +21,13 @@ import java.util.concurrent.TimeoutException;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-@Disabled
 @ExtendWith(ApplicationExtension.class)
 public class TestWhoIsWho {
 
     @Mock PrintStream out;
 
     @BeforeEach
-    public void setUpClass() throws Exception {
+    void setUpClass() throws Exception {
         initMocks(this);
         System.setOut(out);
         ApplicationTest.launch(WhoIsWho.class);
@@ -40,15 +39,16 @@ public class TestWhoIsWho {
     }
 
     @AfterEach
-    public void afterEachTest() throws TimeoutException {
+    void afterEachTest() throws TimeoutException {
         FxToolkit.cleanupStages();
         FxRobot robot = new FxRobot();
         robot.release(new KeyCode[]{});
         robot.release(new MouseButton[]{});
     }
 
+    @Disabled
     @Test
-    public void test_life_cycle_output() {
+    void test_life_cycle_output() {
         verify(out).println("[JavaFX Application Thread] constructeur WhoIsWho()");
         verify(out).println("[JavaFX Application Thread] start() : avant show stage");
         verify(out).println("[JavaFX Application Thread] start() : après show stage");
