@@ -61,7 +61,7 @@ public class TestMyUndecoratedJavaFXWindow {
     @Disabled
     @Test
     void should_initialize_stage_with_correct_title() {
-        assertThat( stage.getTitle()).isEqualTo("Undecorated Useless JavaFX Window");
+        assertThat(stage.getTitle()).isEqualTo("Undecorated Useless JavaFX Window");
     }
 
     @Disabled
@@ -79,19 +79,19 @@ public class TestMyUndecoratedJavaFXWindow {
     @Disabled
     @Test
     void should_initialize_stage_with_height_of_400() {
-        assertThat( stage.getHeight()).isEqualTo(400);
+        assertThat(stage.getHeight()).isEqualTo(400);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_width_of_800() {
-        assertThat( stage.getWidth()).isEqualTo(800);
+        assertThat(stage.getWidth()).isEqualTo(800);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_is_undecorated() {
-        assertThat( stage.getStyle()).isEqualTo(StageStyle.UNDECORATED);
+        assertThat(stage.getStyle()).isEqualTo(StageStyle.UNDECORATED);
     }
 
 }

@@ -6,6 +6,6 @@
       "workingDirectory": "${workspaceFolder}",
       "args": [],
       "vmargs": ["--add-exports", "javafx.graphics/com.sun.javafx.application=ALL-UNNAMED"],
-      "env": {},
+      "env": {}
     }
 }

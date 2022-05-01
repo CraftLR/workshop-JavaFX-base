@@ -22,7 +22,7 @@
 
 L'objectif premier de ce TP est de vous faire découvrir les premières fonctionnalités de JavaFX. Durant ce TP, les étudiants vont découvrir les concepts de base de JavaFX mais aussi produire leur première application graphique.
 
-Depuis sa version 11, JavaFX est devenu un composant externe ou JDK, sous la forme d'un projet open-source qui n'est plus seulement développé par Oracle mais par toute la communauté. JavaFX dispose de son propre [site de référence](https://openjfx.io/), à partir duquel on peut télécharger le SDK JavaFX et sur lequel on trouvera la [documentation de la version 17](https://openjfx.io/javadoc/17/) et des suivantes (la dernière version étant la 18).
+Depuis sa version 11, JavaFX est devenu un composant externe ou JDK, sous la forme d'un projet open-source qui n'est plus seulement développé par Oracle, mais par toute la communauté. JavaFX dispose de son propre [site de référence](https://openjfx.io/), à partir duquel on peut télécharger le SDK JavaFX et sur lequel on trouvera la [documentation de la version 17](https://openjfx.io/javadoc/17/) et des suivantes (la dernière version étant la 18).
 
 Vous devrez par la suite prendre l'habitude de consulter la documentation de l'API de Java 17 ainsi que celle de JavaFX 17.
 
@@ -36,7 +36,7 @@ La première chose que vous allez faire est de créer un fork d'un dépôt. Pour
 
 <https://classroom.github.com/a/En8wWITK>
 
-Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'IUTInfoAix-R202/tp1' et s'appellant 'IUTInfoAix-R202-2022/tp1-votreUsername'.
+Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'IUTInfoAix-R202/tp1' et s'appelant 'IUTInfoAix-R202-2022/tp1-votreUsername'.
 Vous apparaîtrez automatiquement comme contributeur de ce projet pour y pousser votre travail.
 
 Une fois votre fork créé, il vous suffit de l'importer dans IntelliJ.
@@ -47,8 +47,8 @@ Commençons par le plus simple programme permettant d'afficher une fenêtre Java
 
 #### Exercice 1
 
-Ouvrez le fichier `MyFirstJavaFXWindow.java` du paquetage `exercice1` et exécutez-le. Une fenêtre devrait s'afficher avec le titre "*A Useless JavaFX Window*". Elle porte bien son nom car, en effet, cette fenêtre ne sert pas à grand chose...
-Néanmoins, elle peut être minimisée, agrandie, déplacée, fermée etc. comme n'importe quelle fenêtre !
+Ouvrez le fichier `MyFirstJavaFXWindow.java` du paquetage `exercice1` et exécutez-le. Une fenêtre devrait s'afficher avec le titre "*A Useless JavaFX Window*". Elle porte bien son nom car, cette fenêtre ne sert pas à grand-chose...
+Néanmoins, elle peut être minimisée, agrandie, déplacée, fermée, etc. comme n'importe quelle fenêtre !
 
 Le code de cette application graphique est le suivant :
 
@@ -78,9 +78,9 @@ Ainsi que la déclaration de notre classe `MyFirstJavaFXWindow` le montre avec l
 
 Dans un navigateur, ouvrez la documentation sur JavaFX, puis de la classe `Application` qui appartient au paquetage `javafx.application` du module `javafx.graphics`. On observe que cette classe est **abstraite**, ce qui signifie que notre classe **concrète** `MyFirstJavaFXWindow` qui l'étend doit implémenter (redéfinir) toutes les méthodes abstraites de sa classe parente `Application`.
 
-Dans la partie *Method Summary* (et l'onglet *Abstract Methods*) de la documentation, on remarque qu'`Application` ne possède qu'une seule méthode abstraite : la méthode `start()`.  C'est donc la seule méthode que notre classe doit forcément implémenter pour devenir concrète (et donc être instanciable).
+Dans la partie *Method Summary* (et l'onglet *Abstract Methods*) de la documentation, on remarque qu'`Application` ne possède qu'une seule méthode abstraite : la méthode `start()`.  C'est donc la seule méthode que notre classe doit forcément implémenter pour devenir concrète (et donc être instantiable).
 
-Avant de s'intéresser à son contenu, observons que la classe `MyFirstJavaFXWindow` est une classe exécutable car elle définit la méthode `main()`. Celle-ci se contente d'appeler la méthode `launch()` en lui communiquant les arguments de la ligne de commande. `launch()` est une méthode **statique** de la classe `Application`. Son rôle est de créer une instance de notre `Application` et de la démarrer.
+Avant de s'intéresser à son contenu, observons que la classe `MyFirstJavaFXWindow` est une classe exécutable, car elle définit la méthode `main()`. Celle-ci se contente d'appeler la méthode `launch()` en lui communiquant les arguments de la ligne de commande. `launch()` est une méthode **statique** de la classe `Application`. Son rôle est de créer une instance de notre `Application` et de la démarrer.
 
 La méthode `start()` prend en paramètre une instance de la classe `Stage` qui est automatiquement créée par JavaFX dans `launch()`, et qui représente la fenêtre principale de notre application (qui pourra en créer d'autres si besoin).
 Dans notre application, cette fenêtre est vide, alors qu'elle devrait être dotée d'une **scène** contenant des composants, comme nous le verrons plus loin ! Pour débuter, nous nous sommes contentés d'en définir le titre avec la méthode `setTitle()` puis de demander son affichage avec la méthode `show()`.
@@ -101,15 +101,15 @@ Pour rappel, la méthode statique `launch()` effectue dans l'ordre les opératio
 
   1. créer une instance de notre sous-classe d'`Application`,
 
-  2. appeller la méthode `init()` qui procède aux initialisations,
+  2. appeler la méthode `init()` qui procède aux initialisations,
 
-  3. appeller la méthode `start()` en lui fournissant une instance de `Stage`,
+  3. appeler la méthode `start()` en lui fournissant une instance de `Stage`,
 
   4. attendre que l'application se termine, soit parce que l'application a appelé la méthode statique `Platform.exit()`, soit parce que sa dernière fenêtre a été fermée et que l'attribut `implicitExit` de `Platform` est fixé à `true` (qui est sa valeur par défaut),
 
-  5. puis appeller la méthode `stop()`.
+  5. puis appeler la méthode `stop()`.
 
-Seule la méthode `start()` nécessite d'être implémentée car elle est abstraite. Les méthodes `init()` et `stop()` sont déjà définies (vides) dans la classe `Application`, mais peuvent être redéfinies dans votre sous-classe d'`Application` si besoin.
+Seule la méthode `start()` nécessite d'être implémentée, car elle est abstraite. Les méthodes `init()` et `stop()` sont déjà définies (vides) dans la classe `Application`, mais peuvent être redéfinies dans votre sous-classe d'`Application` si besoin.
 
 Afin d'étudier le cycle de vie d'une application, vous allez tracer les différents appels en affichant des messages sur la *console*. Pour cela, vous utiliserez la méthode `System.out.println()` qui prend en paramètre un `String` contenant le message à afficher. 
 
@@ -142,7 +142,7 @@ Puis exécutez (et testez) cette classe, sans en fermer la fenêtre.
 
 Remarquez que l'affichage s'arrête à celui **après** le `show()` qui a rendu visible la fenêtre. À ce stade, la méthode `start()` est déjà terminée. Java (FX) attend désormais que la fenêtre de l'application soit fermée.
 
-Fermez la fenêtre et observez que la méthode `stop()` est alors appelée, ce qui met fin à notre application, puis que les instructions suivant le `launch()` de la méthode `main()` sont exécutées ensuite.
+Fermez la fenêtre et observez que la méthode `stop()` est alors appelée, ce qui met fin à notre application, puisque les instructions après le `launch()` sont exécutées.
 
 À nouveau, pour terminer l'exercice n'oubliez d'en activer tous les tests et de vous assurer qu'ils passent avec succès, ne pas oublier de soumettre vos modifications et de les pousser sur votre dépôt sur GitHub. 
 
@@ -185,7 +185,7 @@ Terminez par l'ajout d'un appel à la méthode `show()` pour afficher la fenêtr
 
 Exécutez l'application pour vérifier les conséquences de vos modifications.
 
-**Remarque:** La taille de la fenêtre se définit rarement directement comme dans cet exercice. En général, on la laisse s'adapter à la **scène** qu'elle contient. Elle-même pourra avoir une taille fixée, ou calculée en fonction de son contenu.
+**Remarque :** La taille de la fenêtre se définit rarement directement comme dans cet exercice. En général, on la laisse s'adapter à la **scène** qu'elle contient. Elle-même pourra avoir une taille fixée ou calculée en fonction de son contenu.
 
 #### Exercice 5
 
@@ -199,7 +199,7 @@ Néanmoins, sur un bureau comme le vôtre qui dispose d'une barre de tâches, un
 
 Pour placer des composants dans une fenêtre, nous utiliserons principalement le conteneur `BorderPane`. Ce conteneur permet de placer des composants enfants dans cinq zones : `Top`, `Bottom`, `Left`, `Right` et `Center`.
 
-Un seul objet `Node` (composant, conteneur, …) peut être placé dans chacun de ces emplacements. Le conteneur `BorderPane` est fréquemment utilisé comme conteneur racine du graphe de scène car il correspond à une division assez classique de la fenêtre principale d'une application (barre de titre, barre d'état, zone d'options, zone principale, etc.).
+Un seul objet `Node` (composant, conteneur, …) peut être placé dans chacun de ces emplacements. Le conteneur `BorderPane` est fréquemment utilisé comme conteneur racine du graphe de scène, car il correspond à une division assez classique de la fenêtre principale d'une application (barre de titre, barre d'état, zone d'options, zone principale, etc.).
 
 Le `BorderPane` est l'un des nombreux gestionnaires de disposition de composants disponibles dans Java FX. Ces gestionnaires seront étudiés plus en détail lors du prochain TP.
 
@@ -219,7 +219,7 @@ Ouvrez la classe `HelloLabel` et modifiez la méthode `start()` pour que votre a
 
 * La fenêtre doit être visible
 
-Exécutez l'application pour vérifier le fonctionnement de cette fenêtre. Redimensionnez-là pour voir comment se comporte votre `Label`. Comme pour l'exercice précédent, vous devez activer les tests les uns après les autres et soumettre votre solution après chaque itération du cycle principal du workflow.
+Exécutez l'application pour vérifier le fonctionnement de cette fenêtre. Redimensionnez-la pour voir comment se comporte votre `Label`. Comme pour l'exercice précédent, vous devez activer les tests les uns après les autres et soumettre votre solution après chaque itération du cycle principal du workflow.
 
 #### Exercice 7
 
@@ -290,7 +290,7 @@ Type var = new Type(param1,param2...) {
 };
 ```
 
-Dans le cas d'un écouteur simple utilisé pour un seul composant, on pourrait le créer comme suit:
+Dans le cas d'un écouteur simple utilisé pour un seul composant, on pourrait le créer comme suit :
 
 ```java
 EventHandler<ActionEvent> ecouteur = new EventHandler<ActionEvent>() {
@@ -388,10 +388,10 @@ Dans le paquetage `exercice12`, ouvrir la classe `Palette` et l'implémenter en 
   * un conteneur racine de type `BorderPane`.
   * un panneau vide de type `Pane` qui servira de panneau central changeant de couleur en fonction des actions de l'utilisateur.
   * un panneau de type `HBox` pour la barre de boutons.
-  * un autre panneau de type `HBox` pour la barre d'état affichant le nombre d'apparition de la couleur courante.
+  * un autre panneau de type `HBox` pour la barre d'état affichant le nombre d'apparitions de la couleur courante.
   * un libellé de type `Label` qui servira à afficher le nombre de fois ou la couleur courante a été choisie.
   * trois `Button` qui permettront de choisir la couleur du panel central.
-  * en plus de ces différents noeuds, il faudra aussi 3 entiers pour conserver le nombre d'apparition de chaque couleur.
+  * en plus de ces différents nœuds, il faudra aussi 3 entiers pour conserver le nombre d'apparitions de chaque couleur.
   
 * Pour vous simplifier la vie, vous pouvez instancier toutes les données membres lors de leur déclaration.
 
@@ -411,7 +411,7 @@ Vous n'obtiendrez pas exactement le même rendu que l'image de la fenêtre du su
 
 * entre les boutons du haut, il y a un espace de 10 pixels qui peut être précisé lors de la création du `HBox` correspondant
 
-* les deux `HBox` sont dotés d'un remplissage (*padding*) de 10 pixels en haut et en bas (et de 5 pixels à droite et à gauche mais ce n'est pas apparent). Trouvez dans la documentation de `HBox` la méthode qui fixe ce padding, ainsi que l'objet à utiliser pour le représenter.
+* les deux `HBox` sont dotés d'un remplissage (*padding*) de 10 pixels en haut et en bas (et de 5 pixels à droite et à gauche, mais ce n'est pas apparent). Trouvez dans la documentation de `HBox` la méthode qui fixe ce padding, ainsi que l'objet à utiliser pour le représenter.
 
 * le texte du bas utilise la police *Tahoma*, de poids (graisse) normal, et de taille 20. Cherchez dans la documentation de `Label` comment préciser la police qui, elle, est obtenue grâce à une méthode statique de la classe `javafx.scene.text.Font` à laquelle on fournit les caractéristiques souhaitées.
 

@@ -24,7 +24,8 @@ import static org.mockito.MockitoAnnotations.initMocks;
 @ExtendWith(ApplicationExtension.class)
 public class TestWhoIsWho {
 
-    @Mock PrintStream out;
+    @Mock
+    PrintStream out;
 
     @BeforeEach
     void setUpClass() throws Exception {

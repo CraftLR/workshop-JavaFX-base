@@ -25,7 +25,8 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(ApplicationExtension.class)
 public class TestApplicationLifeCycle {
 
-    @Mock PrintStream out;
+    @Mock
+    PrintStream out;
 
     @BeforeEach
     void setUpClass() throws Exception {
