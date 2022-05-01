@@ -27,21 +27,18 @@ public class TestHelloButton {
 
     @Start
     public void start(Stage stage) throws Exception {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                TestHelloButton.this.stage = new Stage();
-                try {
-                    FxToolkit.setupStage((sta) -> {
-                        try {
-                            new HelloButton().start(TestHelloButton.this.stage);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
-                }
+        Platform.runLater(() -> {
+            TestHelloButton.this.stage = new Stage();
+            try {
+                FxToolkit.setupStage((sta) -> {
+                    try {
+                        new HelloButton().start(TestHelloButton.this.stage);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            } catch (TimeoutException e) {
+                e.printStackTrace();
             }
         });
     }

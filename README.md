@@ -78,7 +78,7 @@ Ainsi que la déclaration de notre classe `MyFirstJavaFXWindow` le montre avec l
 
 Dans un navigateur, ouvrez la documentation sur JavaFX, puis de la classe `Application` qui appartient au paquetage `javafx.application` du module `javafx.graphics`. On observe que cette classe est **abstraite**, ce qui signifie que notre classe **concrète** `MyFirstJavaFXWindow` qui l'étend doit implémenter (redéfinir) toutes les méthodes abstraites de sa classe parente `Application`.
 
-Dans la partie *Method Summary* (et l'onglet *Abstract Methods*) de la documentation, on remarque qu'`Application` ne possède qu'une seule méthode abstraite : la méthode `start()`.  C'est donc la seule méthode que notre classe doit forcément implémenter pour devenir concrète (et donc être instantiable).
+Dans la partie *Method Summary* (et l'onglet *Abstract Methods*) de la documentation, on remarque qu'`Application` ne possède qu'une seule méthode abstraite : la méthode `start()`. C'est donc la seule méthode que notre classe doit forcément implémenter pour devenir concrète (et donc être instantiable).
 
 Avant de s'intéresser à son contenu, observons que la classe `MyFirstJavaFXWindow` est une classe exécutable, car elle définit la méthode `main()`. Celle-ci se contente d'appeler la méthode `launch()` en lui communiquant les arguments de la ligne de commande. `launch()` est une méthode **statique** de la classe `Application`. Son rôle est de créer une instance de notre `Application` et de la démarrer.
 
@@ -87,7 +87,7 @@ Dans notre application, cette fenêtre est vide, alors qu'elle devrait être dot
 
 Ouvrez la documentation sur la classe `Stage`.
 
-Remarquez que cette classe étend la classe `Window` qui est plus générale. `Window` définit les bases de toute fenêtre de premier niveau (*top level JavaFX container*), ce qui comprend aussi les *popups*. La classe `Stage` dispose de nombreuses méthodes qui lui sont propres et indiquées dans la partie *Method Summary* de la documentation, ainsi que des méthodes héritées (et non redéfinies) de sa super-classe `Window` (et, par transitivité, de la super-classe `Object`) indiquées dans les parties *Methods inherited from ...*.
+Remarquez que cette classe étend la classe `Window` qui est plus générale. `Window` définit les bases de toute fenêtre de premier niveau (*top level JavaFX container*), ce qui comprend aussi les *popups*. La classe `Stage` dispose de nombreuses méthodes qui lui sont propres et indiquées dans la partie *Method Summary* de la documentation, ainsi que des méthodes héritées (et non redéfinies) de sa superclasse `Window` (et, par transitivité, de la superclasse `Object`) indiquées dans les parties *Methods inherited from ...*.
 
 Pour valider cet exercice, lancez les tests pour vérifier que tout est correct.
 
@@ -193,7 +193,7 @@ Modifiez le code de l'application qui vous est donné de manière à changer le 
 
 Puisqu'elle n'est plus décorée, la fenêtre qui s'affiche ne dispose plus du bouton permettant de terminer l'application !
 
-Néanmoins, sur un bureau comme le vôtre qui dispose d'une barre de tâches, un simple clic droit sur l'icône correspondante nous donne accès à un menu contextuel permettant de la fermer. Un autre moyen est de cliquer sur le carré rouge de la partie *Run:* en bas à gauche de la fenêtre IntelliJ, aussi présent en haut à droite.
+Néanmoins, sur un bureau comme le vôtre qui dispose d'une barre de tâches, un simple clic droit sur l'icône correspondante nous donne accès à un menu contextuel permettant de la fermer. Un autre moyen est de cliquer sur le carré rouge de la partie *Run :* en bas à gauche de la fenêtre IntelliJ, aussi présent en haut à droite.
 
 ### Premières applications graphiques : composants et événements
 
@@ -267,7 +267,7 @@ Ouvrez donc les classes `HelloBeautifulUsefulButton` et `EcouteurSimple`, puis i
 
 * La méthode `handle()` de cette classe se contente d'afficher le texte "Bouton actionné" sur la sortie standard.
 
-* La classe `HelloBeautifulUsefulButton` doit respecter les même contraintes que `HelloBeautifulButton`.
+* La classe `HelloBeautifulUsefulButton` doit respecter les mêmes contraintes que `HelloBeautifulButton`.
 
 * Le bouton doit ajouter une instance de la classe `EcouteurSimple` comme écouteur
 
@@ -342,7 +342,7 @@ EventHandler<ActionEvent> ecouteur = event -> System.out.println("Bouton actionn
 
 Cette expression lambda se décompose comme suit :
 
-* `event` est le seul paramètre de l'expression. Il n'est donc pas nécessaire de l'encadrer de parenthèses. Il correspond au paramètre de la méthode de l'interface fonctionnelle associée. Dans notre cas, `event` sera donc du type `ActionEvent`.
+* `event` est le seul paramètre de l'expression. Il n'est donc pas nécessaire de l'encadrer de parenthèses. Il correspond au paramètre de la méthode de l'interface fonctionnelle associée. Dans notre cas, `event` sera du type `ActionEvent`.
 
 * l'opérateur `->` qui est l'élément syntaxique qui identifie une lambda
 
@@ -399,11 +399,13 @@ Dans le paquetage `exercice12`, ouvrir la classe `Palette` et l'implémenter en 
 
 * Les deux `HBox` doivent être alignées au centre (regardez dans la documentation de la classe `HBox`)
 
-* Chaque bouton aura un écouteur d'événement associé qui changera la couleur de fond du panneau central, modifiera le nombre d'apparition de la couleur courante et affichera le texte correspondant dans le panel du bas.
+* Chaque bouton aura un écouteur d'événement associé qui changera la couleur de fond du panneau central, modifiera le nombre d'apparitions de la couleur courante et affichera le texte correspondant dans le panel du bas.
 
 * Les différents composants devront être ajoutés à leur panneau de destination.
 
 * Les 3 panneaux seront ajoutés au conteneur racine.
+
+Contrairement aux premiers exercices, ici les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD.
 
 ##### Remarque
 
@@ -475,3 +477,5 @@ Dans le paquetage `exercice13`, ouvrez la classe `BouncingBall` et implémentez-
 * Ajoutez la balle dans le `Pane`.
 
 * Ajoutez la `HBox`, le `Slider` et le `Pane` comme enfants du conteneur principal.
+
+Contrairement aux premiers exercices, ici les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD.

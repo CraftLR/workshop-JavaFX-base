@@ -25,21 +25,18 @@ public class TestMyUndecoratedJavaFXWindow {
 
     @Start
     void start(Stage stage) throws Exception {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                TestMyUndecoratedJavaFXWindow.this.stage = new Stage();
-                try {
-                    FxToolkit.setupStage((sta) -> {
-                        try {
-                            new MyUndecoratedJavaFXWindow().start(TestMyUndecoratedJavaFXWindow.this.stage);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    });
-                } catch (TimeoutException e) {
-                    e.printStackTrace();
-                }
+        Platform.runLater(() -> {
+            TestMyUndecoratedJavaFXWindow.this.stage = new Stage();
+            try {
+                FxToolkit.setupStage((sta) -> {
+                    try {
+                        new MyUndecoratedJavaFXWindow().start(TestMyUndecoratedJavaFXWindow.this.stage);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
+            } catch (TimeoutException e) {
+                e.printStackTrace();
             }
         });
     }
