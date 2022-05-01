@@ -36,7 +36,7 @@ La première chose que vous allez faire est de créer un fork d'un dépôt. Pour
 
 <https://classroom.github.com/a/En8wWITK>
 
-Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'IUTInfoAix-R202/tp1' et s'appellant 'IUTInfoAix-R202-2022/tp2-votreUsername'.
+Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'IUTInfoAix-R202/tp1' et s'appellant 'IUTInfoAix-R202-2022/tp1-votreUsername'.
 Vous apparaîtrez automatiquement comme contributeur de ce projet pour y pousser votre travail.
 
 Une fois votre fork créé, il vous suffit de l'importer dans IntelliJ.
@@ -47,8 +47,8 @@ Commençons par le plus simple programme permettant d'afficher une fenêtre Java
 
 #### Exercice 1
 
-Ouvrez le fichier `MyFirstJavaFXWindow.java` du paquet `exercice1` et exécutez-le. Une fenêtre devrait s'afficher avec le titre "*A Useless JavaFX Window*". Elle porte bien son nom car, en effet, cette fenêtre ne sert pas à grand chose...
-Néanmoins, elle peut être minimisée, agrandie, déplacée, fermée etc. comme n'importe quelle fenêtre de votre bureau !
+Ouvrez le fichier `MyFirstJavaFXWindow.java` du paquetage `exercice1` et exécutez-le. Une fenêtre devrait s'afficher avec le titre "*A Useless JavaFX Window*". Elle porte bien son nom car, en effet, cette fenêtre ne sert pas à grand chose...
+Néanmoins, elle peut être minimisée, agrandie, déplacée, fermée etc. comme n'importe quelle fenêtre !
 
 Le code de cette application graphique est le suivant :
 
@@ -76,7 +76,7 @@ Les deux premiers imports sont nécessaires pour utiliser les noms courts des de
 
 Ainsi que la déclaration de notre classe `MyFirstJavaFXWindow` le montre avec l'emploi de `extends Application`, toute application JavaFX doit être une sous-classe de `Application`.
 
-Dans un navigateur, ouvrez la documentation sur JavaFX 11, puis de la classe `Application` qui appartient au paquet `javafx.application` du module `javafx.graphics`. On observe que cette classe est **abstraite**, ce qui signifie que notre classe **concrète** `MyFirstJavaFXWindow` qui l'étend doit implémenter (redéfinir) toutes les méthodes abstraites de sa classe parente `Application`.
+Dans un navigateur, ouvrez la documentation sur JavaFX, puis de la classe `Application` qui appartient au paquetage `javafx.application` du module `javafx.graphics`. On observe que cette classe est **abstraite**, ce qui signifie que notre classe **concrète** `MyFirstJavaFXWindow` qui l'étend doit implémenter (redéfinir) toutes les méthodes abstraites de sa classe parente `Application`.
 
 Dans la partie *Method Summary* (et l'onglet *Abstract Methods*) de la documentation, on remarque qu'`Application` ne possède qu'une seule méthode abstraite : la méthode `start()`.  C'est donc la seule méthode que notre classe doit forcément implémenter pour devenir concrète (et donc être instanciable).
 
@@ -87,53 +87,56 @@ Dans notre application, cette fenêtre est vide, alors qu'elle devrait être dot
 
 Ouvrez la documentation sur la classe `Stage`.
 
-Remarquez que cette classe étend la classe `Window` qui est plus générale. `Window` définit les bases de toute fenêtre de premier niveau (*top level JavaFX container*), ce qui comprend aussi les *popups*. La classe `Stage` dispose de nombreuses méthodes (ou redéfinitions) qui lui sont propres et indiquées dans la partie *Method Summary* de sa documentation, ainsi que des méthodes héritées (et non redéfinies) de sa super-classe `Window` (et, par transitivité, de la super-classe `Object`) indiquées dans les parties *Methods inherited from ...*.
+Remarquez que cette classe étend la classe `Window` qui est plus générale. `Window` définit les bases de toute fenêtre de premier niveau (*top level JavaFX container*), ce qui comprend aussi les *popups*. La classe `Stage` dispose de nombreuses méthodes qui lui sont propres et indiquées dans la partie *Method Summary* de la documentation, ainsi que des méthodes héritées (et non redéfinies) de sa super-classe `Window` (et, par transitivité, de la super-classe `Object`) indiquées dans les parties *Methods inherited from ...*.
 
-Pour valider cet exercice, supprimez ou mettez en commentaires l'annotation `@Disabled` dans la classe `TestMyFirstJavaFXWindow` et lancez les tests pour vérifier que tout est correct.
+Pour valider cet exercice, lancez les tests pour vérifier que tout est correct.
 
-Ceci fait, penser à *commit*er vos modifications et de pousser votre dépôt sur GitHub.
+Ceci fait, pensez à faire un commit avec vos modifications et de les pousser votre dépôt sur GitHub.
 
 ### Cycle de vie d'une application
 
-Étudions rapidement le cycle de vie d'une application JavaFX (figurant dans la documentation de la classe `Application`).
+Ouvrez la documentation de la classe `Application` et étudier le cycle de vie d'une application JavaFX.
 
 Pour rappel, la méthode statique `launch()` effectue dans l'ordre les opérations suivantes :
 
-  1. crée une instance de notre sous-classe d'`Application`,
+  1. créer une instance de notre sous-classe d'`Application`,
 
-  2. appelle sa méthode `init()` qui, comme son nom l'indique, permet de procéder à d'éventuelles initialisations,
+  2. appeller la méthode `init()` qui procède aux initialisations,
 
-  3. appelle sa méthode `start()` en lui fournissant une instance de `Stage`,
+  3. appeller la méthode `start()` en lui fournissant une instance de `Stage`,
 
-  4. attend que l'application se termine, soit parce que l'application a appelé la méthode statique `Platform.exit()`, soit parce que sa dernière fenêtre a été fermée et que l'attribut `implicitExit` de ``Platform`` est fixé à `true` (qui est sa valeur par défaut),
+  4. attendre que l'application se termine, soit parce que l'application a appelé la méthode statique `Platform.exit()`, soit parce que sa dernière fenêtre a été fermée et que l'attribut `implicitExit` de `Platform` est fixé à `true` (qui est sa valeur par défaut),
 
-  5. puis appelle sa méthode `stop()`.
+  5. puis appeller la méthode `stop()`.
 
-Seule la méthode `start()` nécessite d'être implémentée car elle est abstraite. Les méthodes `init()` et `stop()` sont déjà définies (vides) dans la classe `Application`, mais peuvent être redéfinies dans notre sous-classe d'`Application` si besoin.
+Seule la méthode `start()` nécessite d'être implémentée car elle est abstraite. Les méthodes `init()` et `stop()` sont déjà définies (vides) dans la classe `Application`, mais peuvent être redéfinies dans votre sous-classe d'`Application` si besoin.
 
-Afin d'étudier le cycle de vie d'une application, vous allez tracer les différents appels en affichant des messages sur la *console*. Pour cela, vous utiliserez la méthode ``System.out.println()`` qui prend en paramètre un ``String`` contenant le message à afficher. Pour les entrées-sorties sur un terminal (ou console), la classe ``System`` fournit 3 données membres statiques ``in``, ``out`` et ``err`` qui représentent respectivement les flux de l'entrée standard, de la sortie standard et de la sortie d'erreur (comme le font les flux ``cin``, ``cout`` et ``cerr`` du C++).
-Sans (trop) rentrer dans les détails, ``System.out`` est une instance de la classe ``java.io.PrintStream`` qui fournit de nombreuses méthodes d'écriture dans un flux parmi lesquelles plusieurs déclinaisons de la méthode ``println()`` dont celle prenant un ``String`` en paramètre.
+Afin d'étudier le cycle de vie d'une application, vous allez tracer les différents appels en affichant des messages sur la *console*. Pour cela, vous utiliserez la méthode `System.out.println()` qui prend en paramètre un `String` contenant le message à afficher. 
+
+Pour les entrées-sorties sur un terminal (ou console), la classe `System` fournit 3 données membres statiques `in`, `out` et `err` qui représentent respectivement les flux de l'entrée standard, de la sortie standard et de la sortie d'erreur (comme le font les flux `cin`, `cout` et `cerr` du C++).
+
+Sans (trop) rentrer dans les détails, `System.out` est une instance de la classe `java.io.PrintStream` qui fournit de nombreuses méthodes d'écriture dans un flux parmi lesquelles plusieurs déclinaisons de la méthode `println()` dont celle prenant un `String` en paramètre.
 
 #### Exercice 2
 
 Allez dans le paquetage `exercice2` et ouvrir la classe `ApplicationLifeCycle`, puis :
 
-* complétez le constructeur sans paramètre de cette classe, par l'affichage du message "*constructeur ApplicationLifeCycle()*" (pensez au raccourci `sout` d'IntelliJ)
+* compléter le constructeur sans paramètre de cette classe, par l'affichage du message `"constructeur ApplicationLifeCycle()"` (le raccourci `sout` d'IntelliJ peut vous faire gagner du temps)
 
 * dans `start()` :
-  * complétez la méthode en donnant le titre "*Application Life Cycle*" à la fenêtre
+  * complétez la méthode en donnant le titre `"Application Life Cycle"` à la fenêtre
   
-  * ajoutez l'affichage du message "*start() : avant show stage*"
+  * ajoutez l'affichage du message `"start() : avant show stage"`
   
   * faire appel à la méthode `show()` de `Stage` pour afficher la fenêtre
   
-  * ajoutez l'affichage du message "*start() : après show stage*"
+  * ajoutez l'affichage du message `"start() : après show stage"`
 
-* redéfinissez la méthode `init()` de la classe `Application`, en se contenant d'afficher le message "*init()*"
+* redéfinissez la méthode `init()` de la classe `Application`, en se contenant d'afficher le message `"init()"`
 
-* redéfinissez la méthode `stop()` de la classe `Application`, en se contenant d'afficher le message "*stop()*"
+* redéfinissez la méthode `stop()` de la classe `Application`, en se contenant d'afficher le message `"stop()"`
 
-* dans `main()`, ajoutez l'affichage des messages "*main() : avant launch*" et "*main() : après launch*", respectivement avant et après l'appel de `launch()`
+* dans `main()`, ajoutez l'affichage des messages `"main() : avant launch"` et `"main() : après launch"`, respectivement avant et après l'appel de `launch()`
 
 Puis exécutez (et testez) cette classe, sans en fermer la fenêtre.
 
@@ -141,25 +144,27 @@ Remarquez que l'affichage s'arrête à celui **après** le `show()` qui a rendu 
 
 Fermez la fenêtre et observez que la méthode `stop()` est alors appelée, ce qui met fin à notre application, puis que les instructions suivant le `launch()` de la méthode `main()` sont exécutées ensuite.
 
-À nouveau, pour terminer l'exercice n'oubliez d'en activer tous les tests et de vous assurer qu'ils passent avec succès, vant de *commit*er vos modifications et de pousser votre dépôt sur GitHub. Ces étapes sont implicites dans la suite et ne seront plus rappelées.
+À nouveau, pour terminer l'exercice n'oubliez d'en activer tous les tests et de vous assurer qu'ils passent avec succès, ne pas oublier de soumettre vos modifications et de les pousser sur votre dépôt sur GitHub. 
 
 ### Qui fait quoi ?
 
 Pour terminer l'étude du cycle de vie, intéressons-nous aux "organes" de Java qui animent (exécutent) notre application.
+
 Pour réaliser certaines tâches, la JVM utilise des *threads*, qui sont des fils d'exécution distincts d'un même processus.
+
 En général, un *processus* (ou l'un de ses threads) crée des threads pour réaliser des tâches annexes tout en continuant ses propres tâches. Bien que ce soit réducteur, retenons simplement que les threads s'exécutent en parallèle, peuvent se synchroniser, et partagent ensemble la mémoire du processus et ont donc accès aux mêmes objets de l'application.
 
 #### Exercice 3
 
-Ouvrez la classe ``WhoIsWho`` du paquet `exercice3`, puis :
+Ouvrez la classe `WhoIsWho` du paquetage `exercice3`, puis :
 
-1. ouvrez la documentation de la classe `Thread` (du paquet `java.lang` du module `java.base` de Java 11, et non pas de JavaFX), qui est la super classe des threads de la JVM, et recherchez-y :
+1. ouvrez la documentation de la classe `Thread` (du paquetage `java.lang` du module `java.base` de Java 17, et non pas de JavaFX), qui est la super classe des threads de la JVM, et recherchez-y :
     * la méthode **statique** qui renvoie le `Thread` courant,
     * la méthode d'**instance** qui renvoie un `String` contenant le nom de cet objet Thread (oui, ils ont un petit nom)
 
 2. faites en sorte que toutes les méthodes (y compris le constructeur) aient un affichage identique à celui de l'exercice 2.
 
-3. préfixez ces affichages par la chaîne ``[``*nom*``]`` suivi d'un espace, où *nom* est le nom du thread courant (celui qui fait appel au ``println``).
+3. préfixez ces affichages par la chaîne `[`*nom*`]` suivi d'un espace, où *nom* est le nom du thread courant (celui qui fait appel au `println`).
   
 Exécutez ensuite l'application pour constater que pas moins de 3 threads interviennent à différentes étapes du cycle de vie de cette si simple application.
 
@@ -173,28 +178,26 @@ Pour commencer cet exercice, ouvrez la classe `MySecondJavaFxWindow` du paquetag
 Activer les tests les uns après les autres et ajouter au fur et à mesure le code nécessaire dans la méthode `start()` pour les faire passer (sans oublier de pousser votre solution après chaque itération du cycle principal du workflow) de manière à :
 
 * le titre de la fenêtre soit "*Second Useless JavaFX Window*"
-* qu'elle soit toujours placée au premier plan et ne pas être redimensionnable (cherchez dans la documentation de ``Stage`` parmi les méthodes qui commencent par **`set`**),
-* qu'elle ait une largeur fixée à 800 pixels et une hauteur fixée à 400 pixels (cherchez dans les méthodes héritées de ``Window`` commençant par `set`).
+* qu'elle soit toujours placée au premier plan et ne pas être redimensionnable (cherchez dans la documentation de `Stage` parmi les méthodes qui commencent par **`set`**),
+* qu'elle ait une largeur fixée à 800 pixels et une hauteur fixée à 400 pixels (cherchez dans les méthodes héritées de `Window` commençant par `set`).
 
 Terminez par l'ajout d'un appel à la méthode `show()` pour afficher la fenêtre.
 
 Exécutez l'application pour vérifier les conséquences de vos modifications.
 
-##### Remarque
-
-La taille de la fenêtre se définit rarement directement comme dans cet exercice. En général, on la laisse s'adapter à la **scène** qu'elle contient. Elle-même pourra avoir une taille fixée, ou calculée en fonction de son contenu.
+**Remarque:** La taille de la fenêtre se définit rarement directement comme dans cet exercice. En général, on la laisse s'adapter à la **scène** qu'elle contient. Elle-même pourra avoir une taille fixée, ou calculée en fonction de son contenu.
 
 #### Exercice 5
 
-Modifiez le code de l'application qui vous est donné de manière à changer le style de la fenêtre pour qu'elle ne soit pas décorée (recherchez parmi les méthodes relatives à du style). Ajoutez les propriétés que les tests vous imposent pour être totalement validées.
+Modifiez le code de l'application qui vous est donné de manière à changer le style de la fenêtre pour qu'elle ne soit pas décorée (recherchez parmi les méthodes relatives au style). Ajoutez les propriétés que les tests vous imposent pour être totalement validées.
 
 Puisqu'elle n'est plus décorée, la fenêtre qui s'affiche ne dispose plus du bouton permettant de terminer l'application !
+
 Néanmoins, sur un bureau comme le vôtre qui dispose d'une barre de tâches, un simple clic droit sur l'icône correspondante nous donne accès à un menu contextuel permettant de la fermer. Un autre moyen est de cliquer sur le carré rouge de la partie *Run:* en bas à gauche de la fenêtre IntelliJ, aussi présent en haut à droite.
 
 ### Premières applications graphiques : composants et événements
 
-Pour placer des composants dans une fenêtre, nous utiliserons principalement le conteneur `BorderPane`.
-Ce conteneur permet de placer des composants enfants dans cinq zones : `Top`, `Bottom`, `Left`, `Right` et `Center`.
+Pour placer des composants dans une fenêtre, nous utiliserons principalement le conteneur `BorderPane`. Ce conteneur permet de placer des composants enfants dans cinq zones : `Top`, `Bottom`, `Left`, `Right` et `Center`.
 
 Un seul objet `Node` (composant, conteneur, …) peut être placé dans chacun de ces emplacements. Le conteneur `BorderPane` est fréquemment utilisé comme conteneur racine du graphe de scène car il correspond à une division assez classique de la fenêtre principale d'une application (barre de titre, barre d'état, zone d'options, zone principale, etc.).
 
@@ -228,7 +231,7 @@ Exécutez l'application pour vérifier le fonctionnement de cette fenêtre. Comm
 
 #### Exercice 8
 
-Pour l'instant notre bouton paraît bien triste. Ajoutons-lui quelques décorations pour qu'il soit plus esthétique.
+Pour l'instant le bouton paraît est très simple. Ajoutez-lui quelques décorations pour qu'il soit plus esthétique.
 
 Ouvrez la classe `HelloBeautifulButton` et modifiez la méthode `start()` pour que votre application affiche une fenêtre respectant les contraintes suivantes :
 
@@ -254,7 +257,7 @@ Exécutez l'application pour vérifier le fonctionnement de cette fenêtre. Comm
 
 Bien que le bouton soit un peu plus attrayant, il n'est pour l'instant pas très interactif. Généralement, l'utilisateur s'attend à ce qu'un bouton lance un traitement lorsqu'on l'actionne. Pour ce faire, Java permet de réagir aux événements avec le mécanisme des écouteurs (`Listener`). Dans les exercices qui suivent, nous allons voir plusieurs solutions pour implémenter ce mécanisme.
 
-D'un point de vue purement technique, un `Listener` est un objet qui implémente l'interface [`EventHandler<T extends Event>`](https://openjfx.io/javadoc/11/javafx.base/javafx/event/EventHandler.html). Cette interface possède une unique méthode appelée `handle()` qui sera appelée lorsqu'un événement se produit.
+D'un point de vue purement technique, un `Listener` est un objet qui implémente l'interface [`EventHandler<T extends Event>`](https://openjfx.io/javadoc/17/javafx.base/javafx/event/EventHandler.html). Cette interface possède une unique méthode appelée `handle()` qui sera appelée lorsqu'un événement se produit.
 
 Pour qu'un *écouteur* soit appelé au bon moment (lorsqu'un événement est déclenché par une action extérieure), il faut qu'il s'enregistre auprès de l'objet qu'il souhaite écouter. Pour la classe `Button`, c'est la méthode `setOnAction()` qui permet à un écouteur de s'enregistrer pour être informé quand le bouton est actionné.
 
@@ -378,7 +381,7 @@ Pane panneau = new Pane();
 panneau.setStyle("-fx-background-color: white");
 ```
 
-Dans le Paquetage `exercice12`, ouvrir la classe `Palette` et l'implémenter en respectant les consignes suivantes :
+Dans le paquetage `exercice12`, ouvrir la classe `Palette` et l'implémenter en respectant les consignes suivantes :
 
 * La classe devra posséder les données membres suivantes :
   
@@ -414,7 +417,7 @@ Vous n'obtiendrez pas exactement le même rendu que l'image de la fenêtre du su
 
 #### Variante Exercice 12
 
-Dans cette variante, on vous demande de réaliser la même application (dans un fichier à part du même paquetage) mais de n'utiliser qu'un seul écouteur qui devra examiner la source de l'événement afin d'en déduire le bouton actionné.
+Dans cette variante, on vous demande de réaliser la même application (dans un autre fichier du même paquetage) mais de n'utiliser qu'un seul écouteur qui devra examiner la source de l'événement afin d'en déduire le bouton actionné.
 
 #### Exercice 13 : Balle rebondissante
 
@@ -446,7 +449,7 @@ Comme expliqué dans le cours, le mécanisme des propriétés permet d'être inf
 slider.valueProperty().addListener((observable, oldValue, newValue) -> transition.setRate(newValue.doubleValue()));
 ```
 
-Dans le Paquetage `exercice13`, ouvrez la classe `BouncingBall` et implémentez-la en respectant les consignes suivantes :
+Dans le paquetage `exercice13`, ouvrez la classe `BouncingBall` et implémentez-la en respectant les consignes suivantes :
 
 * La classe devra posséder les données membres suivantes :
   * un conteneur racine de type `VBox`
