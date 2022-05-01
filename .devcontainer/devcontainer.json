@@ -29,6 +29,7 @@
 		"vscjava.vscode-java-pack",
 		"redhat.vscode-xml",
 		"redhat.fabric8-analytics",
+		"SonarSource.sonarlint-vscode"
 	],
 
 	"remoteUser": "vscode",
