@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 public class ApplicationLifeCycle extends Application {
 
     public ApplicationLifeCycle() {
+        throw new UnsupportedOperationException();
     }
 
     public static void main(String[] args) {
@@ -14,16 +15,16 @@ public class ApplicationLifeCycle extends Application {
 
     @Override
     public void init() throws Exception {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void stop() throws Exception {
-
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        throw new UnsupportedOperationException();
     }
 }

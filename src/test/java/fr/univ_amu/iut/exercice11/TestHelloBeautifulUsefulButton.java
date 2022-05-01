@@ -6,7 +6,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,6 @@ import static org.mockito.Mockito.verify;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
-@Disabled
 @ExtendWith(ApplicationExtension.class)
 public class TestHelloBeautifulUsefulButton {
 
@@ -54,7 +52,7 @@ public class TestHelloBeautifulUsefulButton {
     }
 
     @AfterEach
-    public void afterEachTest(FxRobot robot) throws TimeoutException {
+    void afterEachTest(FxRobot robot) throws TimeoutException {
         FxToolkit.cleanupStages();
         robot.release(new KeyCode[]{});
         robot.release(new MouseButton[]{});
@@ -62,37 +60,37 @@ public class TestHelloBeautifulUsefulButton {
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_correct_title() {
+    void should_initialize_stage_with_correct_title() {
         assertEquals("Hello !", stage.getTitle());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_is_showing() {
+    void should_initialize_stage_is_showing() {
         assertTrue(stage.isShowing());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_height_of_250() {
+    void should_initialize_stage_with_height_of_250() {
         assertEquals(250, stage.getHeight());
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_width_of_250() {
+    void should_initialize_stage_with_width_of_250() {
         assertEquals(250, stage.getWidth());
     }
 
     @Disabled
     @Test
-    public void should_initialize_button_with_text_hello() {
+    void should_initialize_button_with_text_hello() {
         verifyThat("#buttonHello", hasText("Hello !"));
     }
 
     @Disabled
     @Test
-    public void should_initialize_stage_with_a_graphic() {
+    void should_initialize_stage_with_a_graphic() {
         verifyThat("#buttonHello", (Button node) -> node.getGraphic() instanceof ImageView);
         verifyThat("#buttonHello", (Button node) -> ((ImageView) node.getGraphic()).getImage() != null);
         verifyThat("#buttonHello", (Button node) -> ((ImageView) node.getGraphic()).getImage().getHeight() == 150);
@@ -101,7 +99,7 @@ public class TestHelloBeautifulUsefulButton {
 
     @Disabled
     @Test
-    public void should_button_click_show_useless_text(FxRobot robot) {
+    void should_button_click_show_useless_text(FxRobot robot) {
         PrintStream out = mock(PrintStream.class);
         System.setOut(out);
         robot.clickOn("#buttonHello");
