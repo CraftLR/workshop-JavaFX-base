@@ -1,5 +1,5 @@
 
-ARG VARIANT=11-bullseye
+ARG VARIANT=17-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/java:0-${VARIANT}
 
 # [Option] Install Maven
@@ -15,3 +15,6 @@ RUN if [ "${INSTALL_MAVEN}" = "true" ]; then su vscode -c "umask 0002 && . /usr/
 
 ARG JDK_VERSION="17.0.2.fx-zulu"
 RUN su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk install java ${JDK_VERSION}"
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+     && apt-get -y install --install-recommends libgtk-3-0 libgtk-3-dev libglu1-mesa

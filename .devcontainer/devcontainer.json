@@ -5,7 +5,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"JDK_VERSION":"17.0.2.fx-zulu",
+			"JDK_VERSION":"17.0.3-zulu",
 			"INSTALL_MAVEN": "true",
 			"MAVEN_VERSION": "3.8.5",
 			"INSTALL_GRADLE": "false",
@@ -31,5 +31,19 @@
 		"redhat.fabric8-analytics",
 	],
 
-	"remoteUser": "vscode"
+	"remoteUser": "vscode",
+
+	"features": {
+		"git": "os-provided",
+	},
+
+    "containerEnv": {
+        "DISPLAY": ":1"
+    },
+
+	"runArgs": [
+		"--network=host",
+		"-e", "DISPLAY=${env:DISPLAY}",
+        "-v", "/tmp/.X11-unix:/tmp/.X11-unix"
+	]
 }
