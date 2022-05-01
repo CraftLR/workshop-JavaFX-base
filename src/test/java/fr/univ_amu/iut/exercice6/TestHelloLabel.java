@@ -15,8 +15,7 @@ import org.testfx.framework.junit5.Start;
 
 import java.util.concurrent.TimeoutException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.util.NodeQueryUtils.hasText;
 
@@ -56,25 +55,25 @@ public class TestHelloLabel {
     @Disabled
     @Test
     void should_initialize_stage_with_correct_title() {
-        assertEquals("Hello !", stage.getTitle());
+        assertThat( stage.getTitle()).isEqualTo("Hello !");
     }
 
     @Disabled
     @Test
     void should_initialize_stage_is_showing() {
-        assertTrue(stage.isShowing());
+        assertThat(stage.isShowing()).isTrue();
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_height_of_100() {
-        assertEquals(100, stage.getHeight());
+        assertThat( stage.getHeight()).isEqualTo(100);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_width_of_250() {
-        assertEquals(250, stage.getWidth());
+        assertThat( stage.getWidth()).isEqualTo(250);
     }
 
     @Disabled

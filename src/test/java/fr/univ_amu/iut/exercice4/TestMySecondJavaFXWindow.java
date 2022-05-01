@@ -16,7 +16,8 @@ import org.testfx.framework.junit5.Start;
 
 import java.util.concurrent.TimeoutException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 @ExtendWith(ApplicationExtension.class)
 public class TestMySecondJavaFXWindow {
@@ -44,37 +45,37 @@ public class TestMySecondJavaFXWindow {
     @Disabled
     @Test
     void should_initialize_stage_with_correct_title() {
-        assertEquals("Second Useless JavaFX Window", stage.getTitle());
+        assertThat( stage.getTitle()).isEqualTo("Second Useless JavaFX Window");
     }
 
     @Disabled
     @Test
     void should_initialize_stage_is_always_on_top() {
-        assertTrue(stage.alwaysOnTopProperty().get());
+        assertThat(stage.alwaysOnTopProperty().get()).isTrue();
     }
 
     @Disabled
     @Test
     void should_initialize_stage_is_not_resizable() {
-        assertFalse(stage.resizableProperty().get());
+        assertThat(stage.resizableProperty().get()).isFalse();
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_height_of_400() {
-        assertEquals(400, stage.getHeight());
+        assertThat( stage.getHeight()).isEqualTo(400);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_width_of_800() {
-        assertEquals(800, stage.getWidth());
+        assertThat( stage.getWidth()).isEqualTo(800);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_is_showing() {
-        assertTrue(stage.isShowing());
+        assertThat(stage.isShowing()).isTrue();
     }
 
 }
