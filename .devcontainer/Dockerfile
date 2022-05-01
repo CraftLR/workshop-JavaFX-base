@@ -18,3 +18,5 @@ RUN su vscode -c "umask 0002 && . /usr/local/sdkman/bin/sdkman-init.sh && sdk in
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
      && apt-get -y install --install-recommends libgtk-3-0 libgtk-3-dev libglu1-mesa
+
+RUN sudo chsh -s /bin/zsh vscode
