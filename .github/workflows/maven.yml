@@ -16,6 +16,6 @@ jobs:
         java-package: 'jdk+fx'
         cache: maven
     - name: Run headless test
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: mvn -B package --file pom.xml
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: mvn -B package --file pom.xml
