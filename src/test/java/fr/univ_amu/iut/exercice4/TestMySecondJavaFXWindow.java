@@ -3,6 +3,7 @@ package fr.univ_amu.iut.exercice4;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -63,13 +64,13 @@ public class TestMySecondJavaFXWindow {
     @Disabled
     @Test
     void should_initialize_stage_with_height_of_400() {
-        assertThat(stage.getHeight()).isEqualTo(400);
+        assertThat(stage.getHeight()).isCloseTo(400d, Offset.offset(1d));
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_width_of_800() {
-        assertThat(stage.getWidth()).isEqualTo(800);
+        assertThat(stage.getWidth()).isCloseTo(800d, Offset.offset(1d));
     }
 
     @Disabled
