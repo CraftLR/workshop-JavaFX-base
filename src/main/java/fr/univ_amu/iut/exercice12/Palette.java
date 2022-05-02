@@ -10,9 +10,9 @@ import javafx.stage.Stage;
 
 public class Palette extends Application {
 
-    private final int nbVert = 0;
-    private final int nbRouge = 0;
-    private final int nbBleu = 0;
+    private int nbVert = 0;
+    private int nbRouge = 0;
+    private int nbBleu = 0;
 
     private Label label;
 
