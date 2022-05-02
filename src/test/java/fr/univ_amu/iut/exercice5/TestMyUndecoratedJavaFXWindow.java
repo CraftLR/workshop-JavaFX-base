@@ -63,12 +63,6 @@ public class TestMyUndecoratedJavaFXWindow {
 
     @Disabled
     @Test
-    void should_initialize_stage_is_always_on_top() {
-        assertThat(stage.alwaysOnTopProperty().get()).isTrue();
-    }
-
-    @Disabled
-    @Test
     void should_initialize_stage_is_not_resizable() {
         assertThat(stage.isResizable()).isFalse();
     }
