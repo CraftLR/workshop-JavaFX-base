@@ -64,13 +64,13 @@ public class TestHelloLabel {
     @Disabled
     @Test
     void should_initialize_stage_with_height_of_100() {
-        assertThat(stage.getHeight()).isEqualTo(100);
+        assertThat(stage.getScene().getHeight()).isEqualTo(100);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_width_of_250() {
-        assertThat(stage.getWidth()).isEqualTo(250);
+        assertThat(stage.getScene().getWidth()).isEqualTo(250);
     }
 
     @Disabled
