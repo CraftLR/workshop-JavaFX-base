@@ -69,13 +69,13 @@ public class TestHelloBeautifulUsefulButton {
     @Disabled
     @Test
     void should_initialize_stage_with_height_of_250() {
-        assertThat(stage.getHeight()).isEqualTo(250);
+        assertThat(stage.getScene().getHeight()).isEqualTo(250);
     }
 
     @Disabled
     @Test
     void should_initialize_stage_with_width_of_250() {
-        assertThat(stage.getWidth()).isEqualTo(250);
+        assertThat(stage.getScene().getWidth()).isEqualTo(250);
     }
 
     @Disabled
