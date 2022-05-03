@@ -1,0 +1,48 @@
+@startuml
+scale 1.5
+
+
+class Personnage{
+    #{static} LARGEUR_MOITIE_PERSONNAGE : double
+    #{static} LARGEUR_PERSONNAGE : double
+    #direction:String
+    +directionGauche()
+    +directionDroite(double)
+    +directionBas(double)
+    +directionHaut()
+    ~collision(Personnage):boolean
+}
+
+class Fantome{
+    - basCorps : Rectangle
+    - corps : Circle
+    - oeilGauche : Circle
+    - retineGauche : Circle
+    - oeilDroit : Circle
+    - retineDroite : Circle
+    +directionGauche()
+    +directionDroite(double)
+    +directionBas(double)
+    +directionHaut()
+}
+
+class Pacman{
+    -corps : Circle;
+    -bouche : Line;
+    +directionGauche()
+    +directionDroite(double)
+    +directionBas(double)
+    +directionHaut()
+}
+
+class JeuMain{
+    - scene:Scene
+    - root:BorderPane
+    +void start(Stage)
+    +void move(Personnage, Personnage)
+}
+
+Personnage <|-- Fantome
+Personnage <|-- Pacman
+
+@enduml

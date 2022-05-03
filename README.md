@@ -479,3 +479,67 @@ Dans le paquetage `exercice13`, ouvrez la classe `BouncingBall` et implémentez-
 * Ajoutez la `HBox`, le `Slider` et le `Pane` comme enfants du conteneur principal.
 
 Contrairement aux premiers exercices, ici les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD.
+
+#### Exercice 14 : Pacman
+Cet exercice provient du cours d'IHM de l'IUT de Montpellier (https://gitlabinfo.iutmontp.univ-montp2.fr/ihm/tp1/).
+
+**Objectif :** afficher un pacman, un fantôme, les faire se déplacer au clavier, détecter les éventuelles collisions.
+
+Dans cet exercice, les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD. A minima, pour chaque fonctionnalité demandée dans la spécification ci-après, vous devez écrire au moins un test qui vous permet de vérifier que vous satisfaisez bien les besoins exprimés.
+
+**Diagramme de classes :**
+
+![Diagramme de la classe ConnexionUnique](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/IUTInfoAix-R202/tp1/main/src/main/resources/assets/pacman.puml)
+
+Ce diagramme est généré avec l'outil PlantUML. La convention graphique des schémas UML varie en fonction de l'outil utilisé. Vous pouvez retrouver la documentation de PlantUML ainsi que la représentation visuelle adoptée sur cette page : [https://plantuml.com/fr/class-diagram](https://plantuml.com/fr/class-diagram).
+
+
+![](src/main/resources/assets/exercice14/pacmandiagclasses.jpg)
+
+- Un objet de type `Pacman` sera un `Personnage` qui comporte _un corps et une bouche_, la bouche est orientée vers la droite, gauche, bas, haut en fonction de sa direction.
+
+- Un objet de type `Fantome` sera un `Personnage` qui comporte _un bas de corps_, _un corps_, _un œil gauche_, _une rétine gauche_, _un œil droit_ et _une rétine droite_, les rétines seront orientées en fonction de sa direction.
+
+- Les objets de type `Fantome` et `Pacman` pourront se déplacer dans les 4 directions du plan de jeu avec des touches différentes du clavier, ils ne peuvent _pas sortir du plan de jeu_.
+
+- Il sera possible de **détecter la collision** entre deux personnages (ou éléments du jeu) se touchant.
+
+- La classe `JeuMain` est chargée de lancer le jeu dans une fenêtre 640*480, chaque personnage est pour l’instant stocké dans un carré de 20 pixels de côté.
+
+Le _code fourni_ permet d’afficher le plan de jeu, un pacman qui se dirige vers la **droite** ou vers la **gauche**, un fantôme **qui ne bouge pas** pour l’instant.
+
+
+**État initial :**
+
+![](src/main/resources/assets/exercice14/jeuinitial.jpg)
+
+**Le pacman s’est déplacé à droite**
+
+![](src/main/resources/assets/exercice14/pacman2.jpg)
+
+**Puis repart vers la gauche**
+
+![](src/main/resources/assets/exercice14/pacman3.jpg)
+
+1. **Complétez** la classe `Pacman` afin que soient pris en compte les déplacements bas et haut. Les touches de déplacement seront les touches du clavier UP, DOWN, LEFT et RIGHT
+
+![](src/main/resources/assets/exercice14/pacmanbas.jpg) ![](src/main/resources/assets/exercice14/pacmanhaut.jpg)
+
+2. **Complétez** la classe `Fantome` afin que soient pris en compte les déplacements haut, bas, gauche et droite. Les touches de déplacement seront Z, S, Q et D. Les yeux du fantôme suivront la direction comme cela :
+
+![](src/main/resources/assets/exercice14/fantomes.jpg)
+
+3. Pour l’instant la collision affiche un message dans la console. Trouvez un moyen de **stopper le jeu** lorsqu'une collision se produit.
+
+4. **Ajoutez des obstacles infranchissables** (murs, etc), faites en sorte de placer le pacman et le fantôme aux extrémités du jeu.<br>
+**Algo à mettre en place**
+
+- Créez un ou des **obstacles** (nouvelle classe `Obstacle` héritant de `Rectangle`) et stockez-les dans `JeuMain` (Arraylist static...)
+- Lors du déplacement d'un `Personnage` (haut, bas, droite ou gauche), _sauvegardez_ sa position (`x` et `y`), faites le _déplacement voulu_, _détectez_ une collision avec un obstacle (détection de collision avec un des obstacles), si collision _détectée_ **repositionnez** le personnage avec les coordonnées sauvegardées.
+
+
+![](src/main/resources/assets/exercice14/pacmanObstacle.jpg)
+
+5. **Imaginez** une suite, un mode de jeu rapide par exemple le jeu se lance, le gagnant sera soit le pacman s’il atteint le fantôme en moins de 10 secondes soit le fantôme s’il réussit à échapper au pacman au bout des 10 secondes…
+
+**N'oubliez pas de faire les commits pour votre note de participation.**

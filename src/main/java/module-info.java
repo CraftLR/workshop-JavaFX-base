@@ -17,4 +17,5 @@ open module tp.intro.javafx {
     exports fr.univ_amu.iut.exercice11;
     exports fr.univ_amu.iut.exercice12;
     exports fr.univ_amu.iut.exercice13;
+    exports fr.univ_amu.iut.exercice14;
 }
