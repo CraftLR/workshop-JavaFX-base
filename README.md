@@ -489,12 +489,9 @@ Dans cet exercice, les tests ne vous sont pas donnés. Vous devez en vous inspir
 
 **Diagramme de classes :**
 
-![Diagramme de la classe ConnexionUnique](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/IUTInfoAix-R202/tp1/main/src/main/resources/assets/pacman.puml)
+![Diagramme de la classe](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/IUTInfoAix-R202/tp1/main/src/main/resources/assets/pacman.puml)
 
 Ce diagramme est généré avec l'outil PlantUML. La convention graphique des schémas UML varie en fonction de l'outil utilisé. Vous pouvez retrouver la documentation de PlantUML ainsi que la représentation visuelle adoptée sur cette page : [https://plantuml.com/fr/class-diagram](https://plantuml.com/fr/class-diagram).
-
-
-![](src/main/resources/assets/exercice14/pacmandiagclasses.jpg)
 
 - Un objet de type `Pacman` sera un `Personnage` qui comporte _un corps et une bouche_, la bouche est orientée vers la droite, gauche, bas, haut en fonction de sa direction.
 
