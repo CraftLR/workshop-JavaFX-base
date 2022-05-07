@@ -2,7 +2,7 @@
 
 ## IUT d’Aix-Marseille – Département Informatique Aix-en-Provence
 
-* **Ressource:** [R2.03](https://cache.media.enseignementsup-recherche.gouv.fr/file/SPE4-MESRI-17-6-2021/35/5/Annexe_17_INFO_BUT_annee_1_1411355.pdf)
+* **Ressource:** [R2.02](https://cache.media.enseignementsup-recherche.gouv.fr/file/SPE4-MESRI-17-6-2021/35/5/Annexe_17_INFO_BUT_annee_1_1411355.pdf)
 
 * **Responsables:**
 
@@ -111,7 +111,7 @@ Pour rappel, la méthode statique `launch()` effectue dans l'ordre les opératio
 
 Seule la méthode `start()` nécessite d'être implémentée, car elle est abstraite. Les méthodes `init()` et `stop()` sont déjà définies (vides) dans la classe `Application`, mais peuvent être redéfinies dans votre sous-classe d'`Application` si besoin.
 
-Afin d'étudier le cycle de vie d'une application, vous allez tracer les différents appels en affichant des messages sur la *console*. Pour cela, vous utiliserez la méthode `System.out.println()` qui prend en paramètre un `String` contenant le message à afficher. 
+Afin d'étudier le cycle de vie d'une application, vous allez tracer les différents appels en affichant des messages sur la *console*. Pour cela, vous utiliserez la méthode `System.out.println()` qui prend en paramètre un `String` contenant le message à afficher.
 
 Pour les entrées-sorties sur un terminal (ou console), la classe `System` fournit 3 données membres statiques `in`, `out` et `err` qui représentent respectivement les flux de l'entrée standard, de la sortie standard et de la sortie d'erreur (comme le font les flux `cin`, `cout` et `cerr` du C++).
 
@@ -144,7 +144,7 @@ Remarquez que l'affichage s'arrête à celui **après** le `show()` qui a rendu 
 
 Fermez la fenêtre et observez que la méthode `stop()` est alors appelée, ce qui met fin à notre application, puisque les instructions après le `launch()` sont exécutées.
 
-À nouveau, pour terminer l'exercice n'oubliez d'en activer tous les tests et de vous assurer qu'ils passent avec succès, ne pas oublier de soumettre vos modifications et de les pousser sur votre dépôt sur GitHub. 
+À nouveau, pour terminer l'exercice n'oubliez d'en activer tous les tests et de vous assurer qu'ils passent avec succès, ne pas oublier de soumettre vos modifications et de les pousser sur votre dépôt sur GitHub.
 
 ### Qui fait quoi ?
 
@@ -481,7 +481,8 @@ Dans le paquetage `exercice13`, ouvrez la classe `BouncingBall` et implémentez-
 Contrairement aux premiers exercices, ici les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD.
 
 #### Exercice 14 : Pacman
-Cet exercice provient du cours d'IHM de l'IUT de Montpellier (https://gitlabinfo.iutmontp.univ-montp2.fr/ihm/tp1/).
+
+Cet exercice provient du cours d'IHM de l'IUT de Montpellier : <https://gitlabinfo.iutmontp.univ-montp2.fr/ihm/tp1/>
 
 **Objectif :** afficher un pacman, un fantôme, les faire se déplacer au clavier, détecter les éventuelles collisions.
 
@@ -493,50 +494,38 @@ Dans cet exercice, les tests ne vous sont pas donnés. Vous devez en vous inspir
 
 Ce diagramme est généré avec l'outil PlantUML. La convention graphique des schémas UML varie en fonction de l'outil utilisé. Vous pouvez retrouver la documentation de PlantUML ainsi que la représentation visuelle adoptée sur cette page : [https://plantuml.com/fr/class-diagram](https://plantuml.com/fr/class-diagram).
 
-- Un objet de type `Pacman` sera un `Personnage` qui comporte _un corps et une bouche_, la bouche est orientée vers la droite, gauche, bas, haut en fonction de sa direction.
+* Un objet de type `Pacman` sera un `Personnage` qui comporte *un corps et une bouche*, la bouche est orientée vers la droite, gauche, bas, haut en fonction de sa direction.
 
-- Un objet de type `Fantome` sera un `Personnage` qui comporte _un bas de corps_, _un corps_, _un œil gauche_, _une rétine gauche_, _un œil droit_ et _une rétine droite_, les rétines seront orientées en fonction de sa direction.
+* Un objet de type `Fantome` sera un `Personnage` qui comporte *un bas de corps*, *un corps*, *un œil gauche*, *une rétine gauche*, *un œil droit* et *une rétine droite*, les rétines seront orientées en fonction de sa direction.
 
-- Les objets de type `Fantome` et `Pacman` pourront se déplacer dans les 4 directions du plan de jeu avec des touches différentes du clavier, ils ne peuvent _pas sortir du plan de jeu_.
+* Les objets de type `Fantome` et `Pacman` pourront se déplacer dans les 4 directions du plan de jeu avec des touches différentes du clavier, ils ne peuvent *pas sortir du plan de jeu*.
 
-- Il sera possible de **détecter la collision** entre deux personnages (ou éléments du jeu) se touchant.
+* Il sera possible de **détecter la collision** entre deux personnages (ou éléments du jeu) se touchant.
 
-- La classe `JeuMain` est chargée de lancer le jeu dans une fenêtre 640*480, chaque personnage est pour l’instant stocké dans un carré de 20 pixels de côté.
+* La classe `JeuMain` est chargée de lancer le jeu dans une fenêtre 640*480, chaque personnage est pour l’instant stocké dans un carré de 20 pixels de côté.
 
-Le _code fourni_ permet d’afficher le plan de jeu, un pacman qui se dirige vers la **droite** ou vers la **gauche**, un fantôme **qui ne bouge pas** pour l’instant.
-
+Le *code fourni* permet d’afficher le plan de jeu, un pacman qui se dirige vers la **droite** ou vers la **gauche**, un fantôme **qui ne bouge pas** pour l’instant.
 
 **État initial :**
 
-![](src/main/resources/assets/exercice14/jeuinitial.jpg)
+![jeuinitial](src/main/resources/assets/exercice14/jeuinitial.jpg)
 
-**Le pacman s’est déplacé à droite**
+**Le pacman s’est déplacé à droite :**
 
-![](src/main/resources/assets/exercice14/pacman2.jpg)
+![pacman2](src/main/resources/assets/exercice14/pacman2.jpg)
 
-**Puis repart vers la gauche**
+**Puis repart vers la gauche :**
 
-![](src/main/resources/assets/exercice14/pacman3.jpg)
+![pacman3](src/main/resources/assets/exercice14/pacman3.jpg)
 
 1. **Complétez** la classe `Pacman` afin que soient pris en compte les déplacements bas et haut. Les touches de déplacement seront les touches du clavier UP, DOWN, LEFT et RIGHT
-
-![](src/main/resources/assets/exercice14/pacmanbas.jpg) ![](src/main/resources/assets/exercice14/pacmanhaut.jpg)
-
+  ![pacmanbas](src/main/resources/assets/exercice14/pacmanbas.jpg) ![pacmanhaut](src/main/resources/assets/exercice14/pacmanhaut.jpg)
 2. **Complétez** la classe `Fantome` afin que soient pris en compte les déplacements haut, bas, gauche et droite. Les touches de déplacement seront Z, S, Q et D. Les yeux du fantôme suivront la direction comme cela :
-
-![](src/main/resources/assets/exercice14/fantomes.jpg)
-
+  ![fantomes](src/main/resources/assets/exercice14/fantomes.jpg)
 3. Pour l’instant la collision affiche un message dans la console. Trouvez un moyen de **stopper le jeu** lorsqu'une collision se produit.
-
-4. **Ajoutez des obstacles infranchissables** (murs, etc), faites en sorte de placer le pacman et le fantôme aux extrémités du jeu.<br>
-**Algo à mettre en place**
-
-- Créez un ou des **obstacles** (nouvelle classe `Obstacle` héritant de `Rectangle`) et stockez-les dans `JeuMain` (Arraylist static...)
-- Lors du déplacement d'un `Personnage` (haut, bas, droite ou gauche), _sauvegardez_ sa position (`x` et `y`), faites le _déplacement voulu_, _détectez_ une collision avec un obstacle (détection de collision avec un des obstacles), si collision _détectée_ **repositionnez** le personnage avec les coordonnées sauvegardées.
-
-
-![](src/main/resources/assets/exercice14/pacmanObstacle.jpg)
-
+4. **Ajoutez des obstacles infranchissables** (murs, etc), faites en sorte de placer le pacman et le fantôme aux extrémités du jeu.
+  **Algo à mettre en place** :
+    * Créez un ou des **obstacles** (nouvelle classe `Obstacle` héritant de `Rectangle`) et stockez-les dans `JeuMain` (Arraylist static...)
+    * Lors du déplacement d'un `Personnage` (haut, bas, droite ou gauche), *sauvegardez* sa position (`x` et `y`), faites le *déplacement voulu*, *détectez* une collision avec un obstacle (détection de collision avec un des obstacles), si collision *détectée* **repositionnez** le personnage avec les coordonnées sauvegardées.
+  ![pacmanObstacle](src/main/resources/assets/exercice14/pacmanObstacle.jpg)
 5. **Imaginez** une suite, un mode de jeu rapide par exemple le jeu se lance, le gagnant sera soit le pacman s’il atteint le fantôme en moins de 10 secondes soit le fantôme s’il réussit à échapper au pacman au bout des 10 secondes…
-
-**N'oubliez pas de faire les commits pour votre note de participation.**
