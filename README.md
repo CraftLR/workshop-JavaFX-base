@@ -479,7 +479,7 @@ Dans cet exercice, les tests ne vous sont pas donnés. Vous devez en vous inspir
 
 **Diagramme de classes :**
 
-![Diagramme de la classe](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/IUTInfoAix-R202/tp1/main/src/main/resources/assets/pacman.puml)
+![Diagramme de la classe](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/CraftLR/workshop-JavaFX-base/main/src/main/resources/assets/pacman.puml)
 
 Ce diagramme est généré avec l'outil PlantUML. La convention graphique des schémas UML varie en fonction de l'outil utilisé. Vous pouvez retrouver la documentation de PlantUML ainsi que la représentation visuelle adoptée sur cette page : [https://plantuml.com/fr/class-diagram](https://plantuml.com/fr/class-diagram).
 
