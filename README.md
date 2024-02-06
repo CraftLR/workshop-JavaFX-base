@@ -1,45 +1,34 @@
-# <img src="https://raw.githubusercontent.com/IUTInfoAix-M2105/Syllabus/master/assets/logo.png" alt="class logo" class="logo"/> Développement d'application avec IHM
+# <img src="https://raw.githubusercontent.com/CraftLR/workshop-git/main/src/main/resources/assets/logo.png" alt="class logo" class="logo"/> 
 
-## IUT d’Aix-Marseille – Département Informatique Aix-en-Provence
-
-* **Ressource:** [R2.02](https://cache.media.enseignementsup-recherche.gouv.fr/file/SPE4-MESRI-17-6-2021/35/5/Annexe_17_INFO_BUT_annee_1_1411355.pdf)
-
-* **Responsables:**
-
-  * [Sébastien Nedjar](mailto:sebastien.nedjar@univ-amu.fr)
-
-* **Enseignants :**
-
-  * [Cyril Pain-Barre](mailto:cyril.pain-barre@univ-amu.fr)
-  * [Sophie Nabitz](mailto:sophie.nabitz@univ-avignon.fr)
-
+## La Rochelle Software Craftsmenship
+* **Auteurs:** 
+    * [Sébastien NEDJAR](mailto:sebastien.nedjar@univ-amu.fr)
 * **Besoin d'aide ?**
+    * Consulter et/ou créer des [issues](https://github.com/CraftLR/workshop-git/issues).
+    * [Email](mailto:sebastien.nedjar@univ-amu.fr) pour toutes questions autres.
 
-  * Consulter et/ou créer des [issues](https://github.com/IUTInfoAix-R203/tp1-git/issues).
-  * [Email](mailto:sebastien.nedjar@univ-amu.fr) pour une question d'ordre privée, ou pour convenir d'un rendez-vous physique.
+## Aperçu du workshop et objectifs d'apprentissage
 
-## Aperçu du TP et objectifs d'apprentissage
+L'objectif premier de ce workshop est de vous faire découvrir les fonctionnalités de JavaFX. Durant ce workshop, les étudiants vont découvrir les concepts de base de JavaFX mais aussi produire leur première application graphique.
 
-L'objectif premier de ce TP est de vous faire découvrir les premières fonctionnalités de JavaFX. Durant ce TP, les étudiants vont découvrir les concepts de base de JavaFX mais aussi produire leur première application graphique.
+Depuis sa version 11, JavaFX est devenu un composant externe ou JDK, sous la forme d'un projet open-source qui n'est plus seulement développé par Oracle, mais par toute la communauté. JavaFX dispose de son propre [site de référence](https://openjfx.io/), à partir duquel on peut télécharger le SDK JavaFX et sur lequel on trouvera la [documentation de la version 21](https://openjfx.io/javadoc/21/).
 
-Depuis sa version 11, JavaFX est devenu un composant externe ou JDK, sous la forme d'un projet open-source qui n'est plus seulement développé par Oracle, mais par toute la communauté. JavaFX dispose de son propre [site de référence](https://openjfx.io/), à partir duquel on peut télécharger le SDK JavaFX et sur lequel on trouvera la [documentation de la version 17](https://openjfx.io/javadoc/17/) et des suivantes (la dernière version étant la 18).
+Vous devrez par la suite prendre l'habitude de consulter la documentation de l'API de Java 21 ainsi que celle de JavaFX 21.
 
-Vous devrez par la suite prendre l'habitude de consulter la documentation de l'API de Java 17 ainsi que celle de JavaFX 17.
+Ce workshop est l'occasion d'un premier contact avec JavaFX.
 
-Ce TP est l'occasion d'un premier contact avec cet environnement.
+## workshop : Premiers pas avec JavaFX
 
-## TP 1 : Premiers pas avec JavaFX
-
-### Création de votre fork du TP
+### Création de votre fork du workshop
 
 La première chose que vous allez faire est de créer un fork d'un dépôt. Pour ce faire, rendez-vous sur le lien suivant :
 
 <https://classroom.github.com/a/En8wWITK>
 
-Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'IUTInfoAix-R202/tp1' et s'appelant 'IUTInfoAix-R202-2022/tp1-votreUsername'.
+Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'CraftLR/workshop-JavaFX-base' et s'appelant 'CraftLR/workshop-JavaFX-base-votreUsername'.
 Vous apparaîtrez automatiquement comme contributeur de ce projet pour y pousser votre travail.
 
-Une fois votre fork créé, il vous suffit de l'importer dans IntelliJ.
+Une fois votre fork créé, il vous suffit de l'importer dans votre IDE comme un projet Maven.
 
 ### Première application : les classes Application et Stage
 
@@ -53,7 +42,7 @@ Néanmoins, elle peut être minimisée, agrandie, déplacée, fermée, etc. comm
 Le code de cette application graphique est le suivant :
 
 ```java
-package fr.univ_amu.iut.exercice1;
+package dev.craftlr.exercice1;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -201,7 +190,7 @@ Pour placer des composants dans une fenêtre, nous utiliserons principalement le
 
 Un seul objet `Node` (composant, conteneur, …) peut être placé dans chacun de ces emplacements. Le conteneur `BorderPane` est fréquemment utilisé comme conteneur racine du graphe de scène, car il correspond à une division assez classique de la fenêtre principale d'une application (barre de titre, barre d'état, zone d'options, zone principale, etc.).
 
-Le `BorderPane` est l'un des nombreux gestionnaires de disposition de composants disponibles dans Java FX. Ces gestionnaires seront étudiés plus en détail lors du prochain TP.
+Le `BorderPane` est l'un des nombreux gestionnaires de disposition de composants disponibles dans Java FX. Ces gestionnaires seront étudiés plus en détail lors du prochain workshop.
 
 #### Exercice 6
 
@@ -317,9 +306,9 @@ Exécutez l'application pour vérifier le fonctionnement de cette fenêtre. Comm
 
 #### Exercice 11
 
-Avec les classes anonymes, l'écriture des écouteurs est grandement facilitée. Malgré tout, le code associé n'est pas très lisible et assez verbeux. Depuis Java 8, il est possible de rendre ce code encore plus explicite grâce à un nouveau concept, les expressions lambda.
+Avec les classes anonymes, l'écriture des écouteurs est grandement facilitée. Malgré tout, le code associé n'est pas très lisible et assez verbeux. Depuis Java 8, il est possible de rendre ce code encore plus explicite grâce aux expressions lambda.
 
-Les expressions lambda sont parmi les nouveaux concepts introduits dans Java 8. Elles ont connu un développement considérable pour ses rapports étroits avec les langages de programmation fonctionnelle. Son intérêt principal provient de la simplicité de sa syntaxe.
+Les expressions lambda sont parmi les concepts introduits dans Java 8. Elles ont connu un développement considérable pour leurs rapports étroits avec les langages de programmation fonctionnelle. L'intérêt premier provient de la simplicité de sa syntaxe.
 
 Les lambda sont une syntaxe particulière qui permet de remplacer les classes anonymes dans certains cas : celui de l'implémentation des interfaces fonctionnelles.
 
@@ -395,7 +384,7 @@ Dans le paquetage `exercice12`, ouvrir la classe `Palette` et l'implémenter en 
   
 * Pour vous simplifier la vie, vous pouvez instancier toutes les données membres lors de leur déclaration.
 
-* Le panneau central doit avoir une taille préférée de 400 par 200 (regardez dans la documentation de la classe `Pane` pour connaitre la méthode à utiliser).
+* Le panneau central doit avoir une taille préférée de 400 par 200 (regardez dans la documentation de la classe `Pane` pour connaître la méthode à utiliser).
 
 * Les deux `HBox` doivent être alignées au centre (regardez dans la documentation de la classe `HBox`)
 
@@ -486,7 +475,7 @@ Cet exercice provient du cours d'IHM de l'IUT de Montpellier : <https://gitlabin
 
 **Objectif :** afficher un pacman, un fantôme, les faire se déplacer au clavier, détecter les éventuelles collisions.
 
-Dans cet exercice, les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD. A minima, pour chaque fonctionnalité demandée dans la spécification ci-après, vous devez écrire au moins un test qui vous permet de vérifier que vous satisfaisez bien les besoins exprimés.
+Dans cet exercice, les tests ne vous sont pas donnés. Vous devez en vous inspirant des exemples précédents écrire les tests, les un après les autres en mode TDD. A minima, pour chaque fonctionnalité demandée dans la spécification ci-après, vous devez écrire au moins un test qui vous permet de vérifier que vous satisfaisiez bien les besoins exprimés.
 
 **Diagramme de classes :**
 

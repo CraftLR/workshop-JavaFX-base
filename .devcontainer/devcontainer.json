@@ -1,46 +1,72 @@
 {
 	"name": "Java",
 	"build": {
-		"dockerfile": "Dockerfile",
-		"args": {
-			"JDK_VERSION":"17.0.3.fx-zulu",
-			"INSTALL_MAVEN": "true",
-			"MAVEN_VERSION": "3.8.5",
-			"INSTALL_GRADLE": "false"
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"installOhMyZsh": true,
+			"upgradePackages": true,
+			"username": "vscode",
+			"uid": "1000",
+			"gid": "1000"
+		},
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"version": "latest"
+		},
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "21.0.1.fx-zulu",
+			"installMaven": "true",
+			"mavenVersion": "3.8.6",
+			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers/features/node:1": {},
+		"ghcr.io/devcontainers/features/desktop-lite:1": {
+			"password": "vscode",
+			"webPort": "6080",
+			"vncPort": "5901"
 		}
 	},
-
-	"settings": {
-		"java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
-		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
-		"terminal.integrated.profiles.linux": {
-			"zsh": {
-				"path": "zsh"
-			}
-		},
-		"terminal.integrated.defaultProfile.linux": "zsh"
-	},
-	
-	"extensions": [
-		"vscjava.vscode-java-pack",
-		"redhat.vscode-xml",
-		"redhat.fabric8-analytics",
-		"SonarSource.sonarlint-vscode"
+	"forwardPorts": [
+		6080,
+		5901
 	],
-
-	"remoteUser": "vscode",
-
-	"features": {
-		"git": "os-provided"
+	"postCreateCommand": {
+		"post-create-script": "/usr/bin/zsh ./.devcontainer/post-create.sh"
 	},
-
-    "containerEnv": {
-        "DISPLAY": ":1"
-    },
-
-	"runArgs": [
-		"--network=host",
-		"-e", "DISPLAY=${env:DISPLAY}",
-        "-v", "/tmp/.X11-unix:/tmp/.X11-unix"
-	]
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {
+				"java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/current",
+				"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
+				"terminal.integrated.profiles.linux": {
+					"zsh": {
+						"path": "zsh"
+					}
+				},
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"editor.formatOnSave": true,
+				"editor.formatOnType": true,
+				"redhat.telemetry.enabled": false
+			},
+			"mounts": [
+				"source=extensions,target=/root/.vscode-server/extensions,type=volume",
+				"source=m2,target=/root/.m2,type=volume"
+			],
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"redhat.vscode-commons",
+				"redhat.vscode-xml",
+				"redhat.fabric8-analytics",
+				"eamodio.gitlens",
+				"shengchen.vscode-checkstyle",
+				"SonarSource.sonarlint-vscode"
+			]
+		}
+	},
+	"remoteUser": "vscode"
 }
