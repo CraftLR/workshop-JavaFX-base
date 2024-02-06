@@ -23,7 +23,7 @@ Ce workshop est l'occasion d'un premier contact avec JavaFX.
 
 La première chose que vous allez faire est de créer un fork d'un dépôt. Pour ce faire, rendez-vous sur le lien suivant :
 
-<https://classroom.github.com/a/En8wWITK>
+<https://classroom.github.com/a/YcglAnYo>
 
 Comme pour le TP1, GitHub va vous créer un dépôt contenant un fork du dépôt 'CraftLR/workshop-JavaFX-base' et s'appelant 'CraftLR/workshop-JavaFX-base-votreUsername'.
 Vous apparaîtrez automatiquement comme contributeur de ce projet pour y pousser votre travail.
